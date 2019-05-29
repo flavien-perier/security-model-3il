@@ -3,10 +3,10 @@
   <component name="AutoImportedSourceRoots">
     <option name="directories">
       <list>
-        <option value="D:\Documents\OneDrive\Documents\03 - Dev\03 - Web\securityModel3IL\scripts\cryptoLocker/src/main/java" />
-        <option value="D:\Documents\OneDrive\Documents\03 - Dev\03 - Web\securityModel3IL\scripts\cryptoLocker/src/main/kotlin" />
-        <option value="D:\Documents\OneDrive\Documents\03 - Dev\03 - Web\securityModel3IL\scripts\cryptoLocker/src/test/java" />
-        <option value="D:\Documents\OneDrive\Documents\03 - Dev\03 - Web\securityModel3IL\scripts\cryptoLocker/src/test/kotlin" />
+        <option value="D:\Documents\OneDrive\Documents\03 - Dev\03 - Web\securityModel3IL\Scripts\cryptolocker/src/main/java" />
+        <option value="D:\Documents\OneDrive\Documents\03 - Dev\03 - Web\securityModel3IL\Scripts\cryptolocker/src/main/kotlin" />
+        <option value="D:\Documents\OneDrive\Documents\03 - Dev\03 - Web\securityModel3IL\Scripts\cryptolocker/src/test/java" />
+        <option value="D:\Documents\OneDrive\Documents\03 - Dev\03 - Web\securityModel3IL\Scripts\cryptolocker/src/test/kotlin" />
       </list>
     </option>
   </component>
@@ -31,9 +31,8 @@
     <output url="file://$MODULE_DIR$/target/classes" />
     <output-test url="file://$MODULE_DIR$/target/test-classes" />
     <content url="file://$MODULE_DIR$">
-      <sourceFolder url="file://$MODULE_DIR$/src/main/resources" type="java-resource" />
-      <sourceFolder url="file://$MODULE_DIR$/src/test/resources" type="java-test-resource" />
       <sourceFolder url="file://$MODULE_DIR$/src/main/kotlin" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/src/main/resources" type="java-resource" />
       <sourceFolder url="file://$MODULE_DIR$/src/test/kotlin" isTestSource="true" />
       <excludeFolder url="file://$MODULE_DIR$/target" />
     </content>

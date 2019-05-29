@@ -3,7 +3,7 @@
 ## Installation du serveur
 
 - Installer le serveur: `npm install`
-- Compile l'exécutable d'authentification: `npm build`
+- Compile l'exécutable d'authentification: `npm run build`
 - Lancer le serveur: `npm start`
 - Le serveur ce lance sur le port: `0.0.0.0:8080`
 
