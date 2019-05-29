@@ -1,0 +1,14 @@
+{
+  "name": "bruteforceftp",
+  "version": "1.0.0",
+  "description": "Brute force FTP",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js"
+  },
+  "author": "Hugo MARTIN",
+  "license": "MIT",
+  "dependencies": {
+    "jsftp": "~2.1"
+  }
+}
