@@ -14,6 +14,7 @@
 ### Client
 
 - Installer les programmes: 
+  - [kali](https://www.kali.org/)
   - [git](https://git-scm.com/)
   - [nodejs](https://nodejs.org/en/)
   - [java](https://www.java.com/fr/)
