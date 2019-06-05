@@ -26,7 +26,7 @@
                 if (is_dir($fileDirectory) && $handle = opendir($fileDirectory)) {
                     if (!$attackBlocked) {
                         while (($file = readdir($handle)) != false) {
-                            if ($file != "." && $file != "..") {
+                            if ($file != "..") {
                                 if (is_dir($fileDirectory."/".$file)) {
                                     echo "<li><a href='?enableSecurity=".$_GET["enableSecurity"]."&directory=$directory/$file'>$file</a></li>";
                                 } else {
