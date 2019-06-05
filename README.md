@@ -9,11 +9,11 @@
 - [Thomas MULLOR](https://github.com/mullonch)
 - [Hugo MARTIN](https://github.com/hash-86)
 
-## Dépendances
+## Livrables
 
 ### Client
 
-- Installer les programmes: 
+- Programmes d'installés: 
   - [kali](https://www.kali.org/)
   - [git](https://git-scm.com/)
   - [nodejs](https://nodejs.org/en/)
@@ -21,14 +21,19 @@
 
 ### Serveur
 
-- Installer les programmes: 
+- Programmes d'installés: 
   - [IIS](https://www.iis.net/)
   - [mysql](https://www.mysql.com/fr/)
   - [git](https://git-scm.com/)
   - [nodejs](https://nodejs.org/en/)
   - [java](https://www.java.com/fr/)
+  
+  - Sites hébergés:
+    - SecurityModel3il (http://172.16.217.117)
+    - PhpMyAdmin (http://172.16.217.117:8081)
+    - WordPress (http://172.16.217.117:8082)
 
-## Livrables
+## Failles implémentées
 
 ### Websites
 
