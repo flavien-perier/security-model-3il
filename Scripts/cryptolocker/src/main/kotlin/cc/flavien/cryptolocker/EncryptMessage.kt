@@ -50,7 +50,7 @@ class EncryptMessage(
 
     companion object {
         const val CRYPTO_METHOD = "RSA"
-        const val CRYPTO_BITS = 2048
+        const val CRYPTO_BITS = 1024
 
         fun getPrivate(keyBytes: ByteArray): PrivateKey {
             val spec = PKCS8EncodedKeySpec(keyBytes)
