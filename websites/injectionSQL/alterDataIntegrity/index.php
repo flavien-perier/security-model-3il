@@ -7,15 +7,15 @@
 <html>
     <head>
         <title>SQL Injection</title>
-        <link rel="stylesheet" type="text/css" href="styles.css">
+        <link rel="stylesheet" type="text/css" href="../styles.css">
     </head>
     <body>
         <h1>SQL Injection</h1>
 
         <form action="" method="post" enctype="multipart/form-data">
-            Find an article<br/>
+            <p class="instructions">Find an article</p>
             <input type="text" name="search" /><br />
-            <input type="checkbox" name="enableSecurity" />Enable security<br/>
+            <input type="checkbox" name="enableSecurity" /><span class="text_checkbox">Enable security</span><br>
             <input type="submit" value="Find" name="submit" />
         </form>
 

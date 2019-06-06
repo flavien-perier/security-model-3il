@@ -7,15 +7,15 @@
 <html>
     <head>
         <title>SQL Injection</title>
-        <link rel="stylesheet" type="text/css" href="styles.css">
+        <link rel="stylesheet" type="text/css" href="../styles.css">
     </head>
     <body>
         <h1>SQL Injection</h1>
 
         <form action="" method="post" enctype="multipart/form-data">
-            Username : <input type="text" name="username" /><br />
-            Password : <input type="password" name="password" /><br />
-            <input type="checkbox" name="enableSecurity" />Enable security<br/>
+            <span class="user">Username : </span><input type="text" name="username" /><br />
+            <span class="user">Password : <input type="password" name="password" /><br />
+            <input type="checkbox" name="enableSecurity" /><span class="text_checkbox">Enable security</span><br/>
             <input type="submit" value="login" name="login" />
         </form>
 
