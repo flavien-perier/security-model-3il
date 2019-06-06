@@ -23,10 +23,12 @@
 
 - Programmes d'installés: 
   - [IIS](https://www.iis.net/)
-  - [mysql](https://www.mysql.com/fr/)
+  - [mysql 5.6.44.0](https://www.mysql.com/fr/)
   - [git](https://git-scm.com/)
   - [nodejs](https://nodejs.org/en/)
   - [java](https://www.java.com/fr/)
+  - [php 5.6.1](https://www.php.net/)
+  - [WordPress 5.2](https://fr.wordpress.com/)
   
  - Sites hébergés:
    - [SecurityModel3il](http://172.16.217.117)
