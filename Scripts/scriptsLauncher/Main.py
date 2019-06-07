@@ -15,21 +15,23 @@ def scanReseau():
 	choix = -1
 	while choix != 0:
 		print("*1* quels appareils sont connecte a mon reseau ?")
-		print("*2* quels ports sont ouvert sur une machine ?")
-		print("*3* quels services sont actif sur une machine?")
+		print("*2* quels ports sont ouverts et les services actifs sur une machine ?")
 		print("*0* retour au menu principal")
 		choix = input()
 
-		#if int(choix) == 1:
-			#print("voici les appareils connectes a votre reseaux : ")
-			#os.system("nmap -sP 192.168.0.0/24")
-		#elif int(choix) == 2:
-		#	print("Entrer l'addresse ip de la machine a scanner : ")
-		#	ipMachine = raw_input()
-		#	print("voici les ports ouverts de la machine : ")
-		#	os.system("nmap -sV "+ipMachine+" -A -v")
-		#elif int(choix) == 3:
-		#	pass
+		if int(choix) == 1:
+			print("Entrer l'addresse reseau du reseau  a scanner sous la fomre xxxx.xxxx.xxxx.xxxx/xx : ")
+			ipMachine = raw_input()
+			print("voici les appareils connectes a votre reseaux : ")
+			os.system("nmap -sP "+ipMachine)
+		if int(choix) == 2:
+			print("Entrer l'addresse ip de la machine a scanner : (par defaut serveur IIS)")
+			ipMachine = raw_input()
+			if ipMachine == "":
+				ipMachine = ipDomain
+			print("voici les ports ouverts et service actif de la machine : ")
+			os.system("nmap -sV "+ipMachine+" -A -v")
+			pass
 	
 def WPScan():
 	url = ""
@@ -70,8 +72,6 @@ def Main():
 			crackPassword()
 		elif int(choix) == 7:
 			scanReseau()
-		elif int(choix) == 1:
-			webbrowser.open("https://github.com/flavien-perier/securityModel3IL")
 		elif int(choix) == 8:
 			WPScan()
 		elif int(choix) == 9:
