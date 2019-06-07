@@ -1,16 +1,15 @@
 import os
 import webbrowser
-ipDomain = "192.168.157.0"
+ipDomain = "172.16.217.117"
 def crackPassword():
-	pwdFile = open("./Scripts/bruteForceIIS/test/.htpasswd",'r')
+	pwdFile = open("./passwords.txt",'r')
 	pwdList = pwdFile.read()
 	pwdFile.close()
 	pwdList = pwdList.split("\n")
 	for i in range(len(pwdList)-1):
-		pwdList[i] = pwdList[i].split(':')
-		print("Mots de passe de l'utilisateur : "+pwdList[i][0])
-		print("Hash : "+pwdList[i][1])
-		os.system("findmyhash MD5 -h "+pwdList[i][1]+" -g")
+		print("Mots de passe de l'utilisateur : "+ str(i))
+		print("Hash : "+pwdList[i])
+		os.system("findmyhash MD5 -h "+pwdList[i]+" -g")
 	
 def scanReseau():
 	choix = -1
@@ -21,41 +20,36 @@ def scanReseau():
 		print("*0* retour au menu principal")
 		choix = input()
 
-		if int(choix) == 1:
-			print("voici les appareils connectes a votre reseaux : ")
-			os.system("nmap -sP "+ipDomain+"/24")
-		elif int(choix) == 2:
-			print("Entrer l'addresse ip de la machine a scanner : ")
-			ipMachine = raw_input()
-			print("voici les ports ouverts de la machine : ")
-			os.system("nmap -sV "+ipMachine+" -A -v")
-		elif int(choix) == 3:
-			pass
+		#if int(choix) == 1:
+			#print("voici les appareils connectes a votre reseaux : ")
+			#os.system("nmap -sP 192.168.0.0/24")
+		#elif int(choix) == 2:
+		#	print("Entrer l'addresse ip de la machine a scanner : ")
+		#	ipMachine = raw_input()
+		#	print("voici les ports ouverts de la machine : ")
+		#	os.system("nmap -sV "+ipMachine+" -A -v")
+		#elif int(choix) == 3:
+		#	pass
 	
 def WPScan():
 	url = ""
-	print("Entrer l'url que vous voulez scanner : ")
+	print("Entrer l'url que vous voulez scanner (par defaut serveur IIS) : ")
 	url = raw_input()
-	os.system("wpscan --random-user-agent --url "+url)
+	if url == "":
+		url = "http://"+ipDomain+":8082"
+	os.system("wpscan --url "+url+" -e u,vp,vt,m --password-attack wp-login -P /usr/share/wordlists/dirb/common.txt")
 
 def VulnScan():
 	url = ""
-	print("Entrer l'url que vous voulez scanner : ")
+	print("Entrer l'url que vous voulez scanner (par defaut serveur IIS) : ")
 	url = raw_input()
+	if url == "":
+		url = ipDomain
 	os.system("nikto -h "+url)	
 	
 def Main():
-	print("______________________________________________________________________________________")
-	print("______________________________________________________________________________________")
-	print("______________________________________________________________________________________")
-	print("______________________________________________________________________________________")
-	print("______________________________________________________________________________________")
-	print("_________________________________Security Project_____________________________________")
-	print("______________________________________________________________________________________")
-	print("______________________________________________________________________________________")
-	print("______________________________________________________________________________________")
-	print("______________________________________________________________________________________")
-	print("______________________________________________________________________________________")
+	title = "  _________                          .__  __                              .___     .__    ________ .__.__  \n "+"/   _____/ ____   ____  __ _________|__|/  |_ ___.__.   _____   ____   __| _/____ |  |   \_____  \|__|  |  \n"+" \_____  \_/ __ \_/ ___\|  |  \_  __ \  \   __<   |  |  /     \ /  _ \ / __ |/ __ \|  |     _(__  <|  |  |  \n"+" /        \  ___/\  \___|  |  /|  | \/  ||  |  \___  | |  Y Y  (  <_> ) /_/ \  ___/|  |__  /       \  |  |__\n"+"/_______  /\___  >\___  >____/ |__|  |__||__|  / ____| |__|_|  /\____/\____ |\___  >____/ /______  /__|____/\n"+"	\/     \/     \/                       \/            \/            \/    \/              \/      \n"  
+	print(title)
 
 	choix = -1
 
@@ -82,6 +76,21 @@ def Main():
 			WPScan()
 		elif int(choix) == 9:
 			VulnScan()
+		elif int(choix) == 5:
+			webbrowser.open("http://172.16.217.117/directoryExploration/?enableSecurity=false&directory=.")
+		elif int(choix) == 4:
+			webbrowser.open("http://172.16.217.117/fileUpload/")
+		elif int(choix) == 2:
+			webbrowser.open("http://172.16.217.117/injectionJS/")
+		elif int(choix) == 1:
+			print("*1* Alter data integrity")
+			print("*2* force Authentication")
+			print("*0* retour")
+			choix = input()
+			if(choix == 1):
+				webbrowser.open("http://172.16.217.117/injectionSQL/alterDataIntegrity/")
+			elif(choix == 2):
+				webbrowser.open("http://172.16.217.117/injectionSQL/forceAuthentification/")
 
 
 Main()
