@@ -1,17 +1,52 @@
 <!DOCTYPE html>
-<html>
-    <header>
-        <title>Websites list</title>
-    </header>
-    <body>
-        <h1>Websites list</h1>
-        <ul>
-            <li><a href="./directoryExploration">directoryExploration</a></li>
-            <li><a href="./fileUpload">fileUpload</a></li>
-            <li><a href="./injectionJS">injectionJS</a></li>
-            <li><a href="./injectionSQL">injectionSQL</a></li>
-          </ul>
 
-          <a href="./install.php">DB installation</a>
+<html>
+	<head>
+		<title>Websites list</title>
+		<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+		<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+		<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+	</head>
+    <body>
+        
+		<div class="container">
+			<h1 class="text-center">Websites list</h1>
+			<div class="row">
+				<div class="card m-2" style="width: 15rem;">
+				  <img src="./assets/images/legoclone2.jpg" class="card-img-top" alt="fichtre...">
+				  <div class="card-body">
+					<h5 class="card-title">Directory exploration</h5>
+					<p class="card-text">Parcours de l'arborescence du systeme</p>
+					<a href="./directoryExploration" class="btn btn-primary">Essayer -></a></a>
+				  </div>
+				</div>
+				<div class="card m-2" style="width: 15rem;">
+				  <img src="./assets/images/legoclone3.jpg" class="card-img-top" alt="fichtre...">
+				  <div class="card-body">
+					<h5 class="card-title">file Upload</h5>
+					<p class="card-text">Export de fichier de code executable sur le serveur</p>
+					<a href="./fileUpload" class="btn btn-primary">Essayer -></a></a>
+				  </div>
+				</div>				
+				<div class="card m-2" style="width: 15rem;">
+				  <img src="./assets/images/legoclone1.jpg" class="card-img-top" alt="fichtre...">
+				  <div class="card-body">
+					<h5 class="card-title">injection JS</h5>
+					<p class="card-text">Insertion de scripts sur le site</p>
+					<a href="./injectionJS" class="btn btn-primary">Essayer -></a></a>
+				  </div>
+				</div>				
+				<div class="card m-2" style="width: 15rem;">
+				  <img src="./assets/images/legoclone4.jpg" class="card-img-top" alt="fichtre...">
+				  <div class="card-body">
+					<h5 class="card-title">injection SQL</h5>
+					<p class="card-text">Injection de code dans les requetes SQL</p>
+					<a href="./injectionSQL" class="btn btn-primary">Essayer -></a></a>
+				  </div>
+				</div>
+			</div>
+			<a class="btn btn-block btn-danger text-center ml-auto" style="width:250px;" href="./install.php">installation de la BD</a>
+		</div>
     </body>
 </html>

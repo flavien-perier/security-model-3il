@@ -5,12 +5,12 @@
 ?>
 <html>
     <head>
-        <title>JS Injection</title>
-        <link rel="stylesheet" type="text/css" href="styles.css">
+        <title>Injection JS</title>
+		<link rel="stylesheet" type="text/css" href="injection_js.css">
     </head>
     <body>
-        <h1>JS Injection</h1>
-
+        <h1>Write me some messages...</h1>
+		<div class="messages"><ul>
         <?php
             if (isset($_GET["message"])) {
                 $req = $_pdo->prepare("INSERT INTO message(text) VALUES (:text);");
@@ -25,18 +25,20 @@
 
             foreach ($results as $r) {
                 if (isset($_GET["enableSecurity"])) {
-                    echo "<li>Message: ".htmlspecialchars($r[1], ENT_QUOTES)."</li>";
+                    echo "<li class='message'>Message: ".htmlspecialchars($r[1], ENT_QUOTES)."</li>";
                 } else {
-                    echo "<li>Message: ".$r[1]."</li>";
+                    echo "<li class='message'>Message: ".$r[1]."</li>";
                 }
             }
         ?>
-
+		</ul></div>
+		<div class="redaction">
         <form action="" method="get">
-            Read message : <br/>
+            <h6>Redigez votre message : </h6>
             <textarea name='message' maxlength='5000' placeholder='Contenu du message'></textarea><br/>
             <input type="checkbox" name="enableSecurity" />Enable security<br/>
             <input type="submit" value="Submit" name="submit" />
         </form>
+		</div>
     </body>
 </html>

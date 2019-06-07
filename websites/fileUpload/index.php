@@ -2,10 +2,11 @@
 <html>
     <head>
         <title>File Upload</title>
-        <link rel="stylesheet" type="text/css" href="styles.css">
+		<link rel="stylesheet" type="text/css" href="fileUpload.css">
     </head>
     <body>
-        <h1>File Upload</h1>  
+        <h1>File Upload</h1>
+		<div class="cadre">
         <?php
             if (isset($_POST["submit"]) && isset($_FILES)) {
                 $fileDirectory = "files/".basename($_FILES["fileUploaded"]["name"]);
@@ -31,13 +32,15 @@
             }
         ?>
         <form action="" method="post" enctype="multipart/form-data">
-            Select file to upload:<br/>
+            <p class="indication">File to upload :</p>
+			<label id="fileinput" for="fileUploaded"><label id="lblfu" for="fileUploaded">Select a file...</label>
             <input type="file" name="fileUploaded" id="fileUploaded"/><br/>
-            <input type="checkbox" name="enableSecurity" />Enable security<br/>
-            <input type="submit" value="Upload File" name="submit" />
+            </label>
+			<input type="checkbox" name="enableSecurity" />Enable security<br/>
+            <input id="upload" type="submit" value="Upload File" name="submit" />
         </form>
-
-        <div>
+		</div>
+		<div class="cadre">
             <h2>Files</h2>
             <?php
                 if ($handle = opendir("./files")) {
@@ -49,6 +52,15 @@
                     closedir($handle);
                 }
             ?>
-        </div>
+		</div>
     </body>
 </html>
+<script>
+window.onload=function(){
+	document.querySelector('input[type=file]').addEventListener("change", function(){
+		var t = this.value;
+		var labelText = 'File : ' + t.substr(12, t.length);
+		document.getElementById("lblfu").innerHTML = labelText;
+	});
+}
+</script>
